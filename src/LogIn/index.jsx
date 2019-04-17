@@ -18,8 +18,22 @@ class SignUpContainer extends Component {
     }
   };
 
+  handleGoogleSignUp = () => {
+    firebase
+      .auth()
+      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then(result => {
+        this.props.history.push("/");
+      });
+  };
+
   render() {
-    return <SignUpView onSubmit={this.handleSignUp} />;
+    return (
+      <SignUpView
+        onSubmit={this.handleSignUp}
+        handleGoogleSignUp={this.handleGoogleSignUp}
+      />
+    );
   }
 }
 

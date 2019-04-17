@@ -17,6 +17,17 @@ class Home extends React.Component {
       });
   };
 
+  logout = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        this.setState({
+          user: null
+        });
+      });
+  };
+
   render() {
     return (
       <div>
@@ -26,9 +37,7 @@ class Home extends React.Component {
             get id token
           </button>
 
-          <button type="submit" onClick={this.logout}>
-            logout
-          </button>
+          <button onClick={this.logout}>logout</button>
         </div>
         <div>IdToken: {this.state.idToken}</div>
       </div>

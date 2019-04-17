@@ -1,6 +1,6 @@
 import React from "react";
 
-const SignUpView = ({ onSubmit }) => {
+const SignUpView = ({ onSubmit, handleGoogleSignUp }) => {
   return (
     <div>
       <h1>Sign up</h1>
@@ -15,6 +15,9 @@ const SignUpView = ({ onSubmit }) => {
         </label>
         <button type="submit">Sign Up</button>
       </form>
+      <br />
+      <br />
+      <button onClick={handleGoogleSignUp}>SignIn with Google</button>
     </div>
   );
 };
