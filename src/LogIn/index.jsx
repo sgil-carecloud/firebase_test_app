@@ -27,11 +27,26 @@ class SignUpContainer extends Component {
       });
   };
 
+  handleSamlSignUp = async event => {
+    event.preventDefault();
+    const provider = new firebase.auth.SAMLAuthProvider("saml.CareCloud");
+    console.log("in here");
+
+    try {
+      const user = await firebase.auth().signInWithPopup(provider);
+      // const user = await firebase.auth().signInWithRedirect(provider);
+      this.props.history.push("/");
+    } catch (e) {
+      console.log("error: ", e);
+    }
+  };
+
   render() {
     return (
       <SignUpView
         onSubmit={this.handleSignUp}
         handleGoogleSignUp={this.handleGoogleSignUp}
+        handleSamlSignUp={this.handleSamlSignUp}
       />
     );
   }

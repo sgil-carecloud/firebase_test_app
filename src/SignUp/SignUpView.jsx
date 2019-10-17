@@ -1,9 +1,9 @@
 import React from "react";
 
-const SignUpView = ({ onSubmit, handleGoogleSignUp }) => {
+const SignUpView = ({ onSubmit, handleGoogleSignUp, handleSamlSignUp }) => {
   return (
     <div>
-      <h1>Sign up</h1>
+      <h1>{"Sign up"}</h1>
       <form onSubmit={onSubmit}>
         <label>
           Email
@@ -18,6 +18,7 @@ const SignUpView = ({ onSubmit, handleGoogleSignUp }) => {
       <br />
       <br />
       <button onClick={handleGoogleSignUp}>SignIn with Google</button>
+      <button onClick={handleSamlSignUp}>SignIn with saml</button>
     </div>
   );
 };
